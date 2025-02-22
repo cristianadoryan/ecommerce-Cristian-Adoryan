@@ -6,13 +6,11 @@
     background-color: #3b3b3b;
   }
   
-  /* Logo del navbar */
   .navbar-logo-img {
     height: 200px;
     cursor: pointer;
   }
   
-  /* Lista de enlaces */
   .navbar-links {
     display: flex;
     list-style: none;
@@ -32,7 +30,6 @@
     color: #025a00;
   }
   
-  /* Carrito */
   .navbar-cart {
     display: flex;
     align-items: center;

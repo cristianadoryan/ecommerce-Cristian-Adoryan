@@ -3,7 +3,7 @@ import { products } from "../../../products";
 import ProductCard from "../../common/productCard/ProductCard";
 import { useState } from "react";
 import { useEffect } from "react";
-
+import "./itemListCointeiner.css"
 
 
 const ItemListConteiner = () => {
@@ -33,7 +33,7 @@ const ItemListConteiner = () => {
     }, [name]);
 
     return (
-        <div>
+        <div className="body">
             {Items.map((item)=>{
                 return (
                     <ProductCard

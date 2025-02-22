@@ -3,9 +3,6 @@ import { useState} from "react";
 const Counter = ({item}) => {
     const [contador, setContador] = useState(1);
 
-  console.log('peticion fuera del effect');
-
-
     const sumar = ()=>{
       if(contador < item.stock){
         setContador(contador + 1)
@@ -25,8 +22,7 @@ const Counter = ({item}) => {
     //para saber cuantos productos quedan y cuantos se van a comprar
     const onAdd = () => {
       console.log('agregar al carrito');
-/*       console.log(item);
-      console.log(contador); */
+
       let cartObject = {...item, quantity: contador};
       console.log(cartObject);
     };
