@@ -1,56 +1,74 @@
 import { useParams } from "react-router";
-import { products } from "../../../products";
 import ProductCard from "../../common/productCard/ProductCard";
 import { useState } from "react";
 import { useEffect } from "react";
-import "./itemListCointeiner.css"
-
+import "./itemListCointeiner.css";
+import ProductSkeleton from "../../common/productSkeleton/ProductSkeleton";
+import Box from "@mui/material/Box";
+import { db } from "../../../firebaseConfig";
+import { getDocs, collection, query, where } from "firebase/firestore";
 
 const ItemListConteiner = () => {
+  const { name } = useParams();
 
-    const {name} = useParams();
-    
-    const [Items, setItems] = useState([]);
+  const [items, setItems] = useState([]);
 
-    useEffect(() => {
-        let arrayFiltrado = products.filter((elemento)=>elemento.category===name);
-        const getProducts =  new Promise((resolve, reject) => {
-            let permiso = true;
-            if(permiso){
-                resolve(name ? arrayFiltrado : products);
-            } else {
-                reject({status:404, message:"no se encontraron productos"});
-            }
-        });
+  useEffect(() => {
+    const productCollection = collection(db, "products");
+    let consulta = productCollection;
+    if (name) {
+      const collectionFilter = query(
+        productCollection,
+        where("category", "==", name)
+      );
+      consulta = collectionFilter;
+    }
 
-        getProducts
-        .then((res) => {
-            setItems(res);
-        })
-        .catch((error) => {
-            console.log(error);
-        });
-    }, [name]);
+    const getProducts = getDocs(consulta);
 
-    return (
+    getProducts.then((res) => {
+      let newArray = res.docs.map((elemento) => {
+        return { id: elemento.id, ...elemento.data() };
+      });
+      setItems(newArray);
+    });
+  }, [name]);
+
+  return (
+    <div>
+      <h1>bienvenidos a mi tienda</h1>
+      {/* <button onClick={rellenar}>rellenar db</button> */}
+
+      {items.length === 0 ? (
+        <Box sx={{ display: "flex", justifyContent: "center", gap: "40px" }}>
+          <ProductSkeleton />
+          <ProductSkeleton />
+          <ProductSkeleton />
+          <ProductSkeleton />
+        </Box>
+      ) : (
         <div className="body">
-            {Items.map((item)=>{
-                return (
-                    <ProductCard
-                    key={item.id}
-                    price={item.price}
-                    title={item.title}
-                    stock={item.stock}
-                    imageUrl={item.imageUrl}
-                    id={item.id}
-                    description={item.descripcion}
-                    category={item.category}
-                    />
-                );
-            })}
+          {items.map((item) => {
+            return (
+              <ProductCard
+                key={item.id}
+                price={item.price}
+                title={item.title}
+                stock={item.stock}
+                imageUrl={item.imageUrl}
+                id={item.id}
+                description={item.descripcion}
+                category={item.category}
+              />
+            );
+          })}
         </div>
-    );
+      )}
+    </div>
+  );
 };
-//lel caso anterior es poco practico lo mejor es usar la desescructuracion directamente en la variable item dentro del map poniendo ({id, title, price})etc. o usar un spread operator dejando solo la key y 
-//luego ({...item})
+{
+  /* //lel caso anterior es poco practico lo mejor es usar la desescructuracion directamente en la variable item dentro del map poniendo ({id, title, price})etc. o usar un spread operator dejando solo la key y
+//luego ({...item}) */
+}
 export default ItemListConteiner;

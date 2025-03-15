@@ -1,32 +1,39 @@
-import { useState} from "react";
+import { useContext, useState } from "react";
+import { CartContext } from "../../../context/CartContext";
+import Swal from "sweetalert2";
 
-const Counter = ({item}) => {
-    const [contador, setContador] = useState(1);
+const Counter = ({ item }) => {
+  const [contador, setContador] = useState(1);
+  const { addToCart } = useContext(CartContext);
 
-    const sumar = ()=>{
-      if(contador < item.stock){
-        setContador(contador + 1)
-      }else {
-        alert('no hay stock')
-      }
-    };
+  const sumar = () => {
+    if (contador < item.stock) {
+      setContador(contador + 1);
+    } else {
+      alert("no hay stock");
+    }
+  };
 
-    const restar = () =>{
-      if(contador > 1){
-        setContador(contador -1)
-      }else{
-        alert('minimo un producto')
-      }
-    };
+  const restar = () => {
+    if (contador > 1) {
+      setContador(contador - 1);
+    } else {
+      alert("minimo un producto");
+    }
+  };
 
-    //para saber cuantos productos quedan y cuantos se van a comprar
-    const onAdd = () => {
-      console.log('agregar al carrito');
+  //para saber cuantos productos quedan y cuantos se van a comprar
+  const onAdd = () => {
+    let cartObject = { ...item, quantity: contador };
+    addToCart(cartObject);
+    Swal.fire({
+      position: "bottom-end",
+      icon: "success",
+      title: "producto agregado al carrito",
+      showConfirmButton: false,
+    });
+  };
 
-      let cartObject = {...item, quantity: contador};
-      console.log(cartObject);
-    };
-    
   return (
     <div>
       <div>
