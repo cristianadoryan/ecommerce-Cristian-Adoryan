@@ -1,93 +1,96 @@
 .gothic-card {
-    border-radius: 8px;
-    background: linear-gradient(to bottom, #0F0F0F 0%, #444444 100%);
-    padding: 15px;
-    height: 450px;
-    width: 300px;
-    box-shadow: 0 5px 15px rgba(0, 255, 0, 0.15);
-    transition: all 0.3s ease;
-    overflow: hidden;
-    position: relative;
-    color: #FFFFFF;
-  }
-  
-  .gothic-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 255, 0, 0.25);
-  }
-  
+  border-radius: 8px;
+  background: linear-gradient(to bottom, #0f0f0f 0%, #444444 100%);
+  padding: 15px;
+  height: 450px;
+  width: 300px;
+  box-shadow: 0 5px 15px rgba(0, 255, 0, 0.15);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  position: relative;
+  color: #ffffff;
+}
 
-  .image-container {
-    overflow: hidden;
-    height: 250px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 15px;
-    position: relative;
-  }
-  
-  .product-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: all 0.5s ease;
-  }
-  
-  .product-image:hover {
-    filter: grayscale(0%);
-    transform: scale(1.05);
-  }
-  
-  .image-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 50%);
-  }
-  
-  .product-title {
-    color: #FFFFFF;
-    font-size: 18px;
-    margin-bottom: 10px;
-    font-weight: 400;
-    text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
-    padding-bottom: 8px;
-  }
-  
-  .product-price {
-    color: #00FF00;
-    font-size: 22px;
-    font-weight: bold;
-    margin: 10px 0;
-    text-shadow: 0 0 8px rgba(0, 255, 0, 0.5);
-  }
-  
-  .product-stock {
-    color: #CCCCCC;
-    font-size: 14px;
-    font-weight: 300;
-    margin-bottom: 15px;
-    font-style: italic;
-  }
-  
-  .product-stock.low-stock {
-    color: #358632;
-  }
-  
-  .product-link {
-    text-decoration: none;
-  }
-  
-  .gothic-button {
-    transition: all 0.3s ease;
-    cursor: pointer;
-  }
-  
-  .gothic-button:hover {
-    background-color: #1a1a1a;
-    box-shadow: 0 0 10px #00FF00;
-    transform: scale(1.03);
-  }
+.gothic-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 255, 0, 0.25);
+}
+
+.image-container {
+  overflow: hidden;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.5s ease;
+}
+
+.product-image:hover {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0) 50%
+  );
+}
+
+.product-title {
+  color: #ffffff;
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-weight: 400;
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.5);
+  padding-bottom: 8px;
+}
+
+.product-price {
+  color: #00ff00;
+  font-size: 22px;
+  font-weight: bold;
+  margin: 10px 0;
+  text-shadow: 0 0 8px rgba(0, 255, 0, 0.5);
+}
+
+.product-stock {
+  color: #cccccc;
+  font-size: 14px;
+  font-weight: 300;
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+.product-stock.low-stock {
+  color: #358632;
+}
+
+.product-link {
+  text-decoration: none;
+}
+
+.gothic-button {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.gothic-button:hover {
+  background-color: #1a1a1a;
+  box-shadow: 0 0 10px #00ff00;
+  transform: scale(1.03);
+}
