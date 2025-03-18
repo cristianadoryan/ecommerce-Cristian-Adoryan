@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { CartContext } from "../../../context/CartContext";
 import Swal from "sweetalert2";
+import "./counter.css";
 
 const Counter = ({ item }) => {
   const [contador, setContador] = useState(1);
@@ -36,12 +37,18 @@ const Counter = ({ item }) => {
 
   return (
     <div>
-      <div>
-        <button onClick={restar}>restar</button>
+      <div className="counter-container">
+        <button onClick={restar} className="counter-button">
+          restar
+        </button>
         <h2>{contador}</h2>
-        <button onClick={sumar}>sumar</button>
+        <button onClick={sumar} className="counter-button">
+          sumar
+        </button>
       </div>
-      <button onClick={onAdd}>agregar al carrito</button>
+      <button onClick={onAdd} className="counter-button">
+        agregar al carrito
+      </button>
     </div>
   );
 };

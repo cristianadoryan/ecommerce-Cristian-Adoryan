@@ -37,7 +37,6 @@ const ItemListConteiner = () => {
   return (
     <div>
       <h1>bienvenidos a mi tienda</h1>
-      {/* <button onClick={rellenar}>rellenar db</button> */}
 
       {items.length === 0 ? (
         <Box sx={{ display: "flex", justifyContent: "center", gap: "40px" }}>
@@ -67,8 +66,5 @@ const ItemListConteiner = () => {
     </div>
   );
 };
-{
-  /* //lel caso anterior es poco practico lo mejor es usar la desescructuracion directamente en la variable item dentro del map poniendo ({id, title, price})etc. o usar un spread operator dejando solo la key y
-//luego ({...item}) */
-}
+
 export default ItemListConteiner;

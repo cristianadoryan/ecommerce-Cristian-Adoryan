@@ -3,6 +3,7 @@ import Counter from "../../common/counter/Counter";
 import { useParams } from "react-router";
 import { db } from "../../../firebaseConfig";
 import { collection, doc, getDoc } from "firebase/firestore";
+import "./itemDetail.css";
 
 export const ItemDetail = () => {
   const { id } = useParams();
@@ -20,10 +21,14 @@ export const ItemDetail = () => {
 
   return (
     <div>
-      <h2>{item.title}</h2>
-      <img src={item.imageUrl} alt="" />
-      <h4>{item.description}</h4>
-      <Counter item={item} />
+      <div className="item-detail-Card">
+        <h2>{item.title}</h2>
+        <div className="image-container-detail">
+          <img src={item.imageUrl} alt="" className="product-image-detail" />
+        </div>
+        <h4>{item.description}</h4>
+        <Counter item={item} />
+      </div>
     </div>
   );
 };
