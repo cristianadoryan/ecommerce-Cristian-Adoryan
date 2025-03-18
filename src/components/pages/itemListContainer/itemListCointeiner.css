@@ -1,7 +1,7 @@
 .body {
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* 4 columnas de igual tamaño */
-  gap: 20px; /* Espacio entre las tarjetas */
+  gap: 50px; /* Espacio entre las tarjetas */
   justify-items: center;
   padding: 100px;
 }
